@@ -12,20 +12,6 @@ import java.util.Arrays;
 @RequestMapping
 public class MyController {
 
-    @RequestMapping("test")
-    public ResponseEntity<String> handleRequest(RequestEntity<String> requestEntity) {
-        System.out.println("request body : " + requestEntity.getBody());
-        HttpHeaders headers = requestEntity.getHeaders();
-        System.out.println("request headers : " + headers);
-        HttpMethod method = requestEntity.getMethod();
-        System.out.println("request method : " + method);
-        System.out.println("request url: " + requestEntity.getUrl());
-
-        ResponseEntity<String> responseEntity = new ResponseEntity<>("my response body",
-                HttpStatus.OK);
-        return responseEntity;
-    }
-
     @RequestMapping("/user")
     public ResponseEntity<String> handleUserRequest (RequestEntity<User> requestEntity) {
         User user = requestEntity.getBody();
@@ -36,10 +22,22 @@ public class MyController {
         MultiValueMap<String, String> headers = new HttpHeaders();
         headers.put("Cache-Control", Arrays.asList("max-age=3600"));
 
-        ResponseEntity<String> responseEntity = new ResponseEntity<>("my response body",
+        return new ResponseEntity<>("my response body",
                 headers,
                 HttpStatus.OK);
-        return responseEntity;
+    }
+
+    @RequestMapping("test")
+    public ResponseEntity<String> handleRequest(RequestEntity<String> requestEntity) {
+        System.out.println("request body : " + requestEntity.getBody());
+        HttpHeaders headers = requestEntity.getHeaders();
+        System.out.println("request headers : " + headers);
+        HttpMethod method = requestEntity.getMethod();
+        System.out.println("request method : " + method);
+        System.out.println("request url: " + requestEntity.getUrl());
+
+        return new ResponseEntity<>("my response body",
+                HttpStatus.OK);
     }
 
 }

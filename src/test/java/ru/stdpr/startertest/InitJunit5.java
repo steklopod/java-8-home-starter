@@ -44,12 +44,6 @@ public class InitJunit5 {
     }
 
     @DisplayName("😱 Повторяемый тест")
-    @RepeatedTest(value = 3, name = "{displayName} {currentRepetition}/{totalRepetitions}")
-    void someTest() {
-        System.out.println("Повторяемый тест...");
-        assertTrue(true);
-    }
-
     @RepeatedTest(4)
     void otherTest() {
         assumeTrue(true);

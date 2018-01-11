@@ -54,29 +54,29 @@ public class IntegerStreams {
     void maxOptionalEmptyList() {
         List<Integer> list = new ArrayList<>();
 //          Будет пустой список [].
-            logger.info("list: " + list);
+        logger.info("list: " + list);
         Optional<Integer> maxValue = list.stream().max(Integer::compareTo);
         Integer integer = maxValue.orElse(null);
 //        Integer integer = maxValue.orElse(2018);
 //          Будет null.
-            logger.info("maxValue.orElse(null) = " + integer);
+        logger.info("maxValue.orElse(null) = " + integer);
 
         List<Integer> list2 = new ArrayList<>();
-            maxValue.ifPresent(System.err::println);
-            maxValue.ifPresent(list2::add);
+        maxValue.ifPresent(System.err::println);
+        maxValue.ifPresent(list2::add);
 //          Будет Optional.empty.
-            logger.info("list2: " + maxValue);
+        logger.info("list2: " + maxValue);
         assertNotEquals(integer, maxValue);
     }
 
     @Test
-    void maxOptionalNotEmpty(){
+    void maxOptionalNotEmpty() {
         Optional<Integer> max = list.stream().max(Integer::compareTo);
-            logger.info("max from Stream = " + max.toString());
-            logger.info("max.get() from Stream = " + max.get());
+        logger.info("max from Stream = " + max.toString());
+        logger.info("max.get() from Stream = " + max.get());
         Integer integer = max.orElse(666);
         assertEquals(max.get(), integer);
-            logger.info("max.orElse = " + max);
+        logger.info("max.orElse = " + max);
         ArrayList arrayList = new ArrayList();
         max.ifPresent(arrayList::add);
         logger.info("arrayList: " + arrayList);
@@ -95,9 +95,9 @@ public class IntegerStreams {
 
         Optional<Integer> maxValueNotNull = testValuesNull
                 .stream()
-                .filter((p) -> p != null && p !=70)
+                .filter((p) -> p != null && p != 70)
                 .max(Integer::compareTo);
-        System.out.println("maxValueNotNull= " + maxValueNotNull);
+        logger.info("maxValueNotNull= " + maxValueNotNull);
     }
 
     @Test
@@ -105,7 +105,7 @@ public class IntegerStreams {
     void testParallel() {
         System.err.println(COUNT);
         Integer integer = list.parallelStream().reduce(Math::max).get();
-        System.out.println(integer);
+        logger.info("max = " + integer);
         assertEquals(COUNT, integer);
     }
 

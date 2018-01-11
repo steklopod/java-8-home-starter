@@ -27,7 +27,6 @@ public class LambdaTextFilter {
 
     private static Logger logger = LoggerFactory.getLogger(LambdaTextFilter.class);
 
-
     @Test
     @DisplayName("Склейка текста без лямбд")
     public void testExternal() {
@@ -59,9 +58,7 @@ public class LambdaTextFilter {
         System.err.println(strings.get(1));
     }
 
-    //////////////////////////////////////////////
     private int invocations = 0;
-
     @Test
     public void testLazy() {
         Stream<String> stream = Arrays.asList("Foo", "Marco", "Bar", "Polo", "Baz")
@@ -102,9 +99,10 @@ public class LambdaTextFilter {
     @Test
     void testEager2() {
         List<String> list = Arrays.asList("S", "SS", "SSS", "SSSS");
-        list.stream()
+        List<String> collect = list.stream()
                 .filter((s) -> s.length() > 2).collect(Collectors.toList());
         System.err.println(list);
+        System.err.println(collect);
     }
 
     @Test
@@ -114,8 +112,8 @@ public class LambdaTextFilter {
         stringList.add("Пёс");
         stringList.add("Котопёс");
         stringList.add("Котяра");
+        stringList.add("Котик");
 //        stringList.add(null);
-
         List<String> resultList = stringList.stream()
                 .filter(value -> value.startsWith("Кот"))
                 .skip(1)

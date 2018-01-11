@@ -1,11 +1,16 @@
 package ru.stdpr.startertest.later;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import ru.stdpr.startertest.connection.DataProvider;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,9 +23,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @RunWith(JUnitPlatform.class)
+@ContextConfiguration(classes = {DataProvider.class})
 public class StreamAPITest {
+    private static Logger logger = LoggerFactory.getLogger(StreamAPITest.class);
 
     @Test
+    @DisplayName("Arrays.asList")
     public void test1() {
         List<String> strings = Arrays.asList("Foo", "Bar", "Baz");
         Stream<String> stream = strings.stream();
@@ -31,21 +39,16 @@ public class StreamAPITest {
     }
 
     @Test
+    @DisplayName("collect/ startWith")
     public void test2() {
         List<String> list = Arrays.asList("Bar", "Baz");
         List<String> strings = Arrays.asList("Foo", "Bar", "Baz");
-
         Stream<String> stream = strings.stream();
-
-        Stream<String> b = stream.filter(s -> s.startsWith("B"));
-
+        Stream<String> b = stream
+                .filter(s -> s.startsWith("B"));
         List<String> collect = b.collect(Collectors.toList());
-
-        System.err.println(collect);
-//                        .stream()
-//                        .filter((s) -> s.startsWith("B"))
-//                        .collect(Collectors.toList())
-        assertEquals(list, collect);
+        logger.info("collect" + collect);
+                assertEquals(list, collect);
     }
 
     @Test

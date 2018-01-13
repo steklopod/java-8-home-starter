@@ -1,4 +1,4 @@
-package ru.stdpr.startertest.entities_ex;
+package ru.stdpr.fc.entities_ex;
 
 import lombok.Data;
 

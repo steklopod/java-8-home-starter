@@ -1,4 +1,4 @@
-package ru.stdpr.startertest.connection;
+package ru.stdpr.fc.connection;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
@@ -15,7 +15,7 @@ import javax.sql.DataSource;
  */
 
 @Configuration
-@ComponentScan(basePackages = "ru.stdpr.startertest")
+@ComponentScan(basePackages = "ru.stdpr.fc")
 @PropertySource("classpath:application.properties")
 @EnableTransactionManagement
 public class DataProvider {

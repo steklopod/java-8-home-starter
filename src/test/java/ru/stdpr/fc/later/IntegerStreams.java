@@ -1,4 +1,4 @@
-package ru.stdpr.startertest.later;
+package ru.stdpr.fc.later;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
@@ -9,9 +9,7 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import ru.stdpr.startertest.connection.DataProvider;
 
 import java.util.*;
 
@@ -22,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 @SpringBootTest
 @RunWith(JUnitPlatform.class)
 @DisplayName("Паралель - Послед.")
-@ContextConfiguration(classes = {DataProvider.class})
+//@ContextConfiguration(classes = {DataProvider.class})
 public class IntegerStreams {
     private static Logger logger = LoggerFactory.getLogger(IntegerStreams.class);
 

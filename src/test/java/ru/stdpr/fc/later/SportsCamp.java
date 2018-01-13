@@ -1,4 +1,4 @@
-package ru.stdpr.startertest.later;
+package ru.stdpr.fc.later;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

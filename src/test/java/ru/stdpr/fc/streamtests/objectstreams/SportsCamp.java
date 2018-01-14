@@ -1,4 +1,4 @@
-package ru.stdpr.fc.later.objectstreams;
+package ru.stdpr.fc.streamtests.objectstreams;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

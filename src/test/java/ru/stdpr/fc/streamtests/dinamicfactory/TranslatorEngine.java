@@ -1,4 +1,4 @@
-package ru.stdpr.fc.later.dinamicfactory;
+package ru.stdpr.fc.streamtests.dinamicfactory;
 
 
 import org.junit.platform.commons.util.StringUtils;

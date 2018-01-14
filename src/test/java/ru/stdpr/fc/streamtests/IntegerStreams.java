@@ -1,4 +1,4 @@
-package ru.stdpr.fc.later;
+package ru.stdpr.fc.streamtests;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
@@ -20,10 +20,8 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 @SpringBootTest
 @RunWith(JUnitPlatform.class)
 @DisplayName("Паралель - Послед.")
-//@ContextConfiguration(classes = {DataProvider.class})
-public class IntegerStreams {
+class IntegerStreams {
     private static Logger logger = LoggerFactory.getLogger(IntegerStreams.class);
-
     private static final Integer COUNT = Integer.getInteger("count", 1_0);
     private static List<Integer> list;
 

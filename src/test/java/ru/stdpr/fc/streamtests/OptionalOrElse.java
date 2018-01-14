@@ -1,4 +1,4 @@
-package ru.stdpr.fc.later;
+package ru.stdpr.fc.streamtests;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

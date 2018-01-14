@@ -1,4 +1,4 @@
-package ru.stdpr.fc.later;
+package ru.stdpr.fc.later.objectstreams;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,5 +1,6 @@
 package ru.stdpr.fc.later;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.platform.runner.JUnitPlatform;
@@ -37,9 +38,9 @@ class OptionalOrElse {
     }
 
     @Test
-    public void whenOrElseIsNull() {
+    void whenOrElseIsNull() {
         String text = null;
-            logger.info("Т.к. значение = null - выполнятся оба. Разницы нет.");
+        logger.info("Т.к. значение = null - выполнятся оба. Разницы нет.");
 
         System.out.println("Using orElseGet:");
         String defaultText =
@@ -53,7 +54,7 @@ class OptionalOrElse {
     }
 
     @Test
-    public void whenOrElseIsNotNull() {
+    void whenOrElseIsNotNull() {
         String text = "Text present";
         logger.info("Т.к. значение != null - выполнится только orElse.");
 
@@ -66,4 +67,15 @@ class OptionalOrElse {
         defaultText = Optional.ofNullable(text).orElse(getMyDefault());
         assertEquals("Text present", defaultText);
     }
+
+    @Test
+    void orElseThrow() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            String nullName = null;
+            String name = Optional.ofNullable(nullName).orElseThrow(
+                    IllegalArgumentException::new);
+        });
+    }
+
+
 }

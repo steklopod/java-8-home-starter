@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @RunWith(JUnitPlatform.class)
-public class SportCamptest {
+class SportCamptest {
     private static Logger logger = LoggerFactory.getLogger(SportCamptest.class);
 
     Collection<SportsCamp> people = Arrays.asList(

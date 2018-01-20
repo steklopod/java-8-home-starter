@@ -22,6 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @RunWith(JUnitPlatform.class)
+@Disabled
 class FlatMapTest {
 
     private static String localPath = "src/test/java/ru/stdpr/fc/java8/flatmap/countingcharacters";
@@ -67,9 +68,9 @@ class FlatMapTest {
                 + streamOfWords.count());
     }
 
-
     static String getPath() throws IOException {
         File resourcesDirectory = new File(localPath);
+        @SuppressWarnings("На линукс другой разделитель")
         String absolutePath = resourcesDirectory.getAbsolutePath() + "\\";
         System.out.println("Текущая папка: \n" + absolutePath);
         return absolutePath;

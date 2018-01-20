@@ -24,6 +24,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @RunWith(JUnitPlatform.class)
 class FlatMapTest {
 
+    private static String localPath = "src/test/java/ru/stdpr/fc/java8/flatmap/countingcharacters";
     private String fileName = "TomSawyer_";
     private int countOfCharactersInWord = 2;
 
@@ -68,7 +69,7 @@ class FlatMapTest {
 
 
     static String getPath() throws IOException {
-        File resourcesDirectory = new File("src/test/java/ru/stdpr/fc/java8/flatmap");
+        File resourcesDirectory = new File(localPath);
         String absolutePath = resourcesDirectory.getAbsolutePath() + "\\";
         System.out.println("Текущая папка: \n" + absolutePath);
         return absolutePath;

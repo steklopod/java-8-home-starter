@@ -1,6 +1,7 @@
 package ru.stdpr.fc.java8.future;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
+import lombok.SneakyThrows;
 import name.falgout.jeffrey.testing.junit5.MockitoExtension;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -22,7 +23,8 @@ class FutureTest {
     private static Logger logger = LoggerFactory.getLogger(FutureTest.class);
 
     @Test
-    void executorService() throws ExecutionException, InterruptedException, TimeoutException {
+    @SneakyThrows
+    void executorService(){
 //      Задаем имя потока(необязательно):
         final ThreadFactory threadFactory = new ThreadFactoryBuilder()
                 .setNameFormat("Поток № %d")
@@ -53,7 +55,8 @@ class FutureTest {
     }
 
     @Test
-    void testInokeAll() throws InterruptedException, ExecutionException {
+    @SneakyThrows
+    void testInokeAll() {
         ExecutorService executorService = Executors.newFixedThreadPool(5);
 
         Callable<String> task1 = () -> {
@@ -72,7 +75,7 @@ class FutureTest {
         };
 
         List<Callable<String>> taskList = Arrays.asList(task1, task2, task3);
-
+//        new CopyOnWriteArrayList(taskList);
         List<Future<String>> futures = executorService.invokeAll(taskList);
 
         for (Future<String> future : futures) {

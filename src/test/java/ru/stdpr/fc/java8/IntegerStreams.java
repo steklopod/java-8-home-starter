@@ -1,4 +1,4 @@
-package ru.stdpr.fc.streamtests;
+package ru.stdpr.fc.java8;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;

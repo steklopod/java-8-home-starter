@@ -1,9 +1,8 @@
 package ru.stdpr.fc;
 
+import name.falgout.jeffrey.testing.junit5.MockitoExtension;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.platform.suite.api.ExcludeTags;
 import org.junit.platform.suite.api.IncludeTags;
@@ -20,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
-@ExtendWith(SpringExtension.class)
+@ExtendWith({SpringExtension.class, MockitoExtension.class})
 @SpringBootTest
 @RunWith(JUnitPlatform.class)
 @IncludeTags("production")
@@ -69,13 +68,6 @@ class InitJunit5 {
             String name = Optional.ofNullable(nullName).orElseThrow(
                     IllegalArgumentException::new);
         });
-    }
-
-    @ParameterizedTest
-    @ValueSource(ints = {1, 2, 3})
-    void testWithValueSource(int argument) {
-        System.err.println(argument);
-        assertNotNull(argument);
     }
 
     @Test

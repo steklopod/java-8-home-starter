@@ -1,4 +1,4 @@
-package ru.stdpr.fc.streamtests.objectstreams.another;
+package ru.stdpr.fc.java8.objectstreams.another;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

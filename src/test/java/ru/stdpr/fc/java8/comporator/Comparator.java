@@ -1,4 +1,4 @@
-package ru.stdpr.fc.streamtests.comporator;
+package ru.stdpr.fc.java8.comporator;
 
 import java.util.function.Function;
 

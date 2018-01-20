@@ -1,4 +1,4 @@
-package ru.stdpr.fc.streamtests.dinamicfactory;
+package ru.stdpr.fc.java8.dinamicfactory;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DynamicTest;

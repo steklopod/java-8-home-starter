@@ -1,15 +1,15 @@
-package ru.stdpr.fc.streamtests.comporator;
+package ru.stdpr.fc.java8.comporator;
 
-public class Person {
+public class PersonForTest {
 
     private String firstName;
     private String lastName;
     private int age;
 
-    public Person() {
+    public PersonForTest() {
     }
 
-    public Person(String firstName, String lastName, int age) {
+    public PersonForTest(String firstName, String lastName, int age) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -41,6 +41,6 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" + "firstName=" + firstName + ", lastName=" + lastName + ", age=" + age + '}';
+        return "PersonForTest{" + "firstName=" + firstName + ", lastName=" + lastName + ", age=" + age + '}';
     }
 }

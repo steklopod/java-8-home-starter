@@ -1,4 +1,4 @@
-package ru.stdpr.fc.streamtests.objectstreams;
+package ru.stdpr.fc.java8.objectstreams;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
